@@ -12,23 +12,13 @@
 
 /* ------------------------------- */
 
- #wrapper {
-    width: 100%;
-}
-
 #page-wrapper {
-    padding: 0 15px;
-    min-height: 568px;
-    background-color: #fff;
+  width: 100%;
 }
 
 @media(min-width:768px) {
     #page-wrapper {
-        position: inherit;
-        margin: 0 0 0 250px;
-        padding: 0 30px;
-        min-height: 1300px;
-        border-left: 1px solid #e7e7e7;
+        position: inherit;  
     }
 }
 
@@ -95,12 +85,51 @@
     right: 0;
     left: auto;
 }
+/* Search */
 
+.search {
+    float: left;
+    margin-top: 10px;
+    width: 20px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    border: 1px solid #fff;
+    box-shadow: none;
+    background: url("../img/search-icon.jpg") no-repeat 10px 8px;
+    padding:0px 5px 0 35px;
+    color: #fff;
+}
+
+.search:focus {
+
+    width: 180px;
+    border: 1px solid #eaeaea;
+    box-shadow: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    color: #c8c8c8;
+    font-weight: 300;
+}
+/* Sidebar Toggle */
+
+.sidebar-toggle-box {
+    margin: 15px 10px 0 0;
+    float: left;
+}
+
+#collapsed_leftbutton {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+}
 /* Sidebar Menu Styles */
 
- .sidebar-search {
-    padding: 15px;
-}
 
 .arrow {
     float: right;
@@ -127,13 +156,39 @@
     padding-left: 52px;
 }
 
+#sidebar {
+    width: 100%;
+    padding-top: 50px;  
+}
+
+#sidebar ul {
+    margin: 0;
+}
+
+#sidebar ul a {
+    color: #428BCA;
+    text-decoration: none;
+}
+
+#sidebar ul, #sidebar ul li {
+    width: 100%;
+}
+
 @media(min-width:768px) {
-    .navbar-static-side {
-        z-index: 1;
-        position: absolute;
-        width: 250px;
+    #sidebar {
+        position: fixed;
+        width: 230px;
+        height: 100%;
+        border-right: 1px solid #e7e7e7;
+    }
+    #sidebar ul {
+        width: 230px;
     }
 
+    #sidebar ul li {
+        width: 230px;
+        padding: 0 15px;
+    }
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
     .navbar-top-links .dropdown-alerts {
@@ -183,6 +238,21 @@
 
 /* ------------------------------- */
 
+#main-content {
+  float:left;
+  border-top: 1px solid #E7E7E7;
+  width: 100%;
+  padding-top: 50px;
+}
+#main-content.active {
+  margin-left: 0px;
+}
+@media(min-width:768px) {
+    #main-content {
+        margin-left: 230px;
+        border-top: none;
+    }
+}
 /* Dashboard Chat */
 
  .chat {
@@ -321,103 +391,8 @@ table.dataTable thead .sorting:after {
 
 /* Optional responsive image override */
 img { max-width: none; }
-#container {
-  width: 100%;
-  height: 100%;
-}
-.white-bg {
-  background: #fff;
-  border-bottom: 1px solid #f1f2f7;
-}
-.header {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1002;
-}
-.header, .footer {
-  min-height: 60px;
-  padding: 0 15px;
-}
-.top-nav {
-  margin-top: 7px;
-}
-#sidebar {
-  width: 210px;
-  height: 100%;
-  position: fixed;
-  background: #f8f8f8;
-}
-/*--sidebar toggle---*/
-
-.sidebar-toggle-box {
-    float: left;
-    padding-right: 15px;
-    margin-top: 20px;
-}
-
-.sidebar-toggle-box .icon-reorder {
-    cursor: pointer;
-    display: inline-block;
-    font-size: 20px;
-}
 
 
-.sidebar-closed > #sidebar > ul {
-    display: none;
-}
 
-.sidebar-closed #main-content {
-    margin-left: 0px;
-}
 
-.sidebar-closed #sidebar {
-    margin-left: -180px;
-}
 
-ul.sidebar-menu, ul.sidebar-menu li ul.sub {
-  margin: -2px 0 0;
-  padding: 0;
-}
-#main-content {
-  margin-left: 210px;
-}
-.wrapper {
-  display: inline-block;
-  margin-top: 60px;
-  padding: 0px 30px;
-  width: 100%;
-}
-#side-menu{
-  margin-top: 75px;
-}
-/*search*/
-
-.search {
-    margin-top: 14px ;
-    width: 20px;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-    border: 1px solid #fff;
-    box-shadow: none;
-    background: url("../img/search-icon.jpg") no-repeat 10px 8px;
-    padding:0 5px 0 35px;
-    color: #fff;
-}
-
-.search:focus {
-
-    width: 180px;
-    border: 1px solid #eaeaea;
-    box-shadow: none;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-    color: #c8c8c8;
-    font-weight: 300;
-}
