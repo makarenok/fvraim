@@ -27,11 +27,101 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+ 
+        	
+        	
+
+		$rawData=array(
+			array('id'=>1, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>2, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>3, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'new'),
+			array('id'=>4, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'near'),
+			array('id'=>5, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
+			array('id'=>6, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>7, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>8, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'weekend'),
+			array('id'=>9, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'weekend'),
+			array('id'=>10, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'weekend'),
+			array('id'=>11, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>12, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>13, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'new'),
+			array('id'=>14, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'near'),
+			array('id'=>15, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
+			array('id'=>16, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>17, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>18, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'weekend'),
+			array('id'=>19, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'weekend'),
+			array('id'=>20, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'weekend'),
+			array('id'=>21, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'weekend'),
+			array('id'=>22, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>23, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>24, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'new'),
+			array('id'=>25, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'near'),
+			array('id'=>26, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
+			array('id'=>27, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>28, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>29, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'weekend'),
+			array('id'=>30, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'weekend'),
+			array('id'=>31, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'weekend'),
+			array('id'=>32, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>33, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>34, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'new'),
+			array('id'=>35, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'near'),
+			array('id'=>36, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
+			array('id'=>37, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'new'),
+			array('id'=>38, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>'near'),
+			array('id'=>39, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>'weekend'),
+			array('id'=>40, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'weekend'),
+			array('id'=>41, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'weekend'),
+		);
+		/*if( strlen($filter) > 0 )
+		{
+			$sortData = array();
+			foreach($rawData as $k=>$v){
+				if($v['sort'] == $filter)
+					$sortData[] = $v;
+			}
+			$rawData = $sortData;
+		}*/
+		// or using: $rawData=User::model()->findAll();
+		$dataProvider = new CArrayDataProvider($rawData, array(
+			    'id'=>'event',
+			    'sort'=>array(
+			        'attributes'=>array(
+			             'id', 'title', 'link', 'sort',
+			        ),
+			    ),
+			    'pagination'=>array(
+			        'pageSize'=>20,
+			    ),
+		));
+
+
+		$params =array(
+			'dataProvider'=>$dataProvider,
+		);
+		if($this->processPageRequest('event_page')) {
+			$this->renderPartial('index', $params);
+		} else {
+			$this->render('index', $params);
+		}
+
 	}
 
+	public function actionLang($lang)
+	{
+		if($lang == 'ru' ||  $lang == 'en'){
+
+            $cookie = Yii::app()->request->cookies['lang'];
+            if ($cookie !== null) {
+                unset(Yii::app()->request->cookies['lang']);
+            } 
+             $cookie = new CHttpCookie('lang', $lang);
+             $cookie->expire = time()+60*60*24*30; // на 30 дней  
+             Yii::app()->request->cookies['lang']=$cookie;
+            }
+            Yii::app()->request->redirect($_SERVER['HTTP_REFERER']);
+	}
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -106,4 +196,16 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	protected function processPageRequest($param='page')
+    {
+        if (Yii::app()->request->isAjaxRequest && isset($_POST[$param])) {
+            $_GET[$param] = Yii::app()->request->getPost($param);
+            return true;
+        } elseif (Yii::app()->request->isAjaxRequest && isset($_GET[$param])) {
+        	$_GET[$param] = Yii::app()->request->getQuery($param);
+            return true;
+        }
+        return false;
+    }
 }

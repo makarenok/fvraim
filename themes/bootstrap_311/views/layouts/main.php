@@ -15,13 +15,12 @@
                     'baseUrl'=>Yii::app()->theme->baseUrl,
                     'js'=>array(
                         'js/bootstrap.min.js',
-                      //  'js/plugins/metisMenu/jquery.metisMenu.js',
                         'js/main.js'
                     ),
                     'css'=>array(
 						'css/bootstrap.min.css',
 						'css/bootstrap-theme.css',
-						'font-awesome/css/font-awesome.css'
+					//	'font-awesome/css/font-awesome.css'
                     ),
                     'depends'=>array('jquery'),
                     'coreScriptPosition'=>CClientScript::POS_END
@@ -29,6 +28,7 @@
 
 	Yii::app()->clientScript->addPackage('bootstrap', $assetsPackage);
     Yii::app()->clientScript->registerPackage('bootstrap');
+
      ?>
 
 
@@ -42,69 +42,95 @@
 </head>
 
 <body>
+<div class="emptydiv"></div>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="navbar-inner">
 	<ul class="nav navbar-left top-menu">
         <li>
 	        <div class="sidebar-toggle-box">
-			    <i id="collapsed_leftbutton" data-original-title="Toggle Navigation"  class="fa fa-bars"></i>
+			    <img id="collapsed_leftbutton" src="<?php echo Yii::app()->baseUrl; ?>/images/bars.png" />
 			</div>
             <input type="text" class="form-control search" placeholder="Поиск">
-                <button  id="collapsed_rightpbutton" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			    <span class="sr-only">Toggle Navigation</span>
-			    <span class="icon-bar"></span>
-			    <span class="icon-bar"></span>
-			    <span class="icon-bar"></span>
-			    </button>
         </li>
     </ul>
-
-    <div  id="collapsing_topmenu" class="navbar-collapse collapse">
-		<?php 
-		$this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Главная', 'url'=>array('/site/index')),
-				array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Контакты', 'url'=>array('/site/contact'))
-			),
-			'htmlOptions'=>array('class'=>'nav navbar-nav navbar-right')
-		)); 
-		?>
-    </div><!-- /.navbar-collapse -->
 	</div><!-- /.navbar-inner -->
 </nav><!-- /nav -->
-<div id="topbarplace"></div>
+
 <div id="sidebar"  class="navbar-default">
+	<?php echo CHtml::link('', '/', array('class'=>'mark-logo')); ?>
 	<?php 
 		$this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'<i class="fa fa-file-o  fa-lg"></i> Моя страница', 'url'=>array('/site/page', 'view'=>'personal')),
-				array('label'=>'<i class="fa fa-heart  fa-lg"></i> Мои интересы', 'url'=>array('/site/page', 'view'=>'interests')),
-				array('label'=>'<i class="fa fa-star  fa-lg"></i> Избранное', 'url'=>array('/site/page', 'view'=>'favorites')),
-				array('label'=>'<i class="fa fa-map-marker  fa-lg"></i> Мое местоположение', 'url'=>array('/site/page', 'view'=>'place')),
-				array('label'=>'<i class="fa fa-plus-circle  fa-lg"></i> Добавить событие', 'url'=>array('/site/page', 'view'=>'event')),
-				array('label'=>'<i class="fa fa-user  fa-lg"></i> Профиль', 'url'=>array('/site/page', 'view'=>'profile')),
-				array('label'=>'<i class="fa fa-question-circle  fa-lg"></i> Кабинет компании', 'url'=>array('/site/page', 'view'=>'kabinet')),
-				array('label'=>'<i class="fa fa-share   fa-lg"></i> Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'<i class="fa fa-share fa-rotate-180  fa-lg"></i> Выход', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'<i class="mark-personal img-responsive"></i> Моя страница', 'url'=>array('/site/page', 'view'=>'personal')),
+				array('label'=>'<i class="mark-interests"></i> Мои интересы', 'url'=>array('/site/page', 'view'=>'interests')),
+				array('label'=>'<i class="mark-favorites"></i> Избранное', 'url'=>array('/site/page', 'view'=>'favorites')),
+				array('label'=>'<i class="mark-place"></i> Мое местоположение', 'url'=>array('/site/page', 'view'=>'place')),
+				array('label'=>'<i class="mark-event"></i> Добавить событие', 'url'=>array('/site/page', 'view'=>'event')),
+				array('label'=>'<i class="mark-profile"></i> Профиль', 'url'=>array('/site/page', 'view'=>'profile')),
+				array('label'=>'<i class="mark-kabinet"></i> Кабинет компании', 'url'=>array('/site/page', 'view'=>'kabinet')),
+				array('label'=>'<i class="mark-login"></i> Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'<i class="mark-logout"></i> Выход', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 			'encodeLabel'=>false,
-			'htmlOptions'=>array('class'=>'nav navbar-nav')
+			'htmlOptions'=>array('class'=>'nav nav-list')
 		)); 
 		?>
+		<div id="add_links">
+		<?php 
+		$this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'Бизнес', 'url'=>array('/site/page', 'view'=>'business')),
+				array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Блог', 'url'=>array('/site/page', 'view'=>'blog')),
+				array('label'=>'Соглашение', 'url'=>array('/site/page', 'view'=>'legal')),
+				array('label'=>'Технологии', 'url'=>array('/site/page', 'view'=>'technology')),
+			),
+			'htmlOptions'=>array('class'=>'nav nav-list')
+		)); 
+		?>
+		</div>
+		<div id="lang_change">
+			<?php
+			$cookie = Yii::app()->request->cookies['lang'];
+			$lang = 'ru';
+			if ($cookie !== null) {
+				$lang = $cookie->value;
+			}
+			$this->widget('zii.widgets.CMenu',array(
+				'items'=>array(
+					array('label'=>'Русский', 'url'=>array('/site/lang', 'lang'=>'ru'), 'active'=> $lang=='ru'),
+					array('label'=>'English', 'url'=>array('/site/lang', 'lang'=>'en'), 'active'=> $lang=='en'),
+				),
+				'htmlOptions'=>array('class'=>'nav nav-pills')
+			)); 
+			?>
+		</div>
+		<div id="app_store_field">
+		<?php echo CHtml::link('<i class="mark-appstore"></i>', 'https://itunes.apple.com/us/app/favoraim/id769878884?l=ru&ls=1&mt=8'); ?>
+		<?php echo CHtml::link('<i class="mark-googleplay"></i>', 'https://play.google.com/store/apps/details?id=com.favoraim.favapp'); ?>
+		<div class="copyright clearfix">
+			<span>&copy;</span>favoraim
+		</div>
+		</div>
 </div><!-- /#sidebar -->
 
 <div id="main-content">
 	<div id="page-wrapper" class="container-fluid">
 		<div class="row">
 		    <div class="col-lg-12">
-		        <h1 class="page-header"><?php echo CHtml::encode($this->pageTitle); ?></h1>
+		    <?php if(Yii::app()->controller->id == 'site' && Yii::app()->controller->action->id == 'index'){ ?>
 
-		        <?php if(isset($this->breadcrumbs)):?>
+		    <?php } else {  ?>
+
+		        <h2 class="page-header"><?php echo CHtml::encode($this->pageTitle); ?></h2>
+
+		        <?php if(isset($this->breadcrumbs)) { ?>
 				<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 					'links'=>$this->breadcrumbs,
 				)); ?><!-- breadcrumbs -->
-			<?php endif?>
+			<?php } ?>
+
+			<?php } ?>
 
 			<?php echo $content; ?>
 

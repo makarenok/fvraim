@@ -1,5 +1,4 @@
 <?php
-
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
@@ -45,7 +44,8 @@ return array(
 			//'useStrictParsing'=>true,
 			'rules'=>array(
 				'/'=>'site/index',
-				'<view:about|personal|interests|favorites|place|event|profile|kabinet>'=>'site/page',
+				'lang/<lang:\w+>'=>'site/lang',
+				'<view:about|personal|interests|favorites|place|event|profile|kabinet|business|blog|legal|technology>'=>'site/page',
 				'<action:(contact|login|logout|home)>'=>'site/<action>',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

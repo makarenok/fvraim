@@ -10,4 +10,14 @@ defined('YII_DEBUG') or define('YII_DEBUG',true);
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 
 require_once($yii);
-Yii::createWebApplication($config)->run();
+
+$application = Yii::createWebApplication($config);
+
+$cookie = Yii::app()->request->cookies['lang'];
+if ($cookie !== null) {
+    $application->language = $cookie->value;
+} else {
+    $application->language = 'ru';
+}
+
+$application->run();
