@@ -1000,3 +1000,48 @@ Stack trace:
 REQUEST_URI=/images/bars.png
 HTTP_REFERER=http://favoraim.lab/
 ---
+2014/03/04 23:50:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.nicescroll.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.nices...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.nicescroll.js
+HTTP_REFERER=http://favoraim.lab/kabinet
+---
+2014/03/04 23:50:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.nicescroll.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.nices...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.nicescroll.js
+HTTP_REFERER=http://favoraim.lab/kabinet
+---
+2014/03/04 23:50:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.nicescroll.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.nices...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.nicescroll.js
+HTTP_REFERER=http://favoraim.lab/kabinet
+---
+2014/03/04 23:51:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.nicescroll.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.nices...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.nicescroll.js
+HTTP_REFERER=http://favoraim.lab/kabinet
+---
+2014/03/04 23:51:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.nicescroll.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.nices...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.nicescroll.js
+HTTP_REFERER=http://favoraim.lab/kabinet
+---

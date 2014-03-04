@@ -29,6 +29,7 @@
 	Yii::app()->clientScript->addPackage('bootstrap', $assetsPackage);
     Yii::app()->clientScript->registerPackage('bootstrap');
 
+    Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.nicescroll.min.js', CClientScript::POS_END);
      ?>
 
 
@@ -57,7 +58,7 @@
 </nav><!-- /nav -->
 
 <div id="sidebar"  class="navbar-default">
-	<?php echo CHtml::link('', '/', array('class'=>'mark-logo')); ?>
+	<?php echo CHtml::link('', Yii::app()->baseUrl.'/', array('class'=>'mark-logo')); ?>
 	<?php 
 		$this->widget('zii.widgets.CMenu',array(
 			'items'=>array(

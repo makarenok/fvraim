@@ -114,6 +114,9 @@ h5 {font-size: 1.4em;}
     top: 0;
     z-index: 1030;
     background: url('../img/sidebar-gradient.gif') 100% 0 repeat-y #fff;
+    /* for nicescroll next two */
+    overflow: hidden;
+    cursor: grab;
 }
 
 
