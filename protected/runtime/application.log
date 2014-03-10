@@ -1236,3 +1236,66 @@ REQUEST_URI=/
 in D:\xampp\htdocs\favoraim.lab\protected\views\site\_rightcontent.php (25)
 in D:\xampp\htdocs\favoraim.lab\protected\controllers\SiteController.php (115)
 in D:\xampp\htdocs\favoraim.lab\index.php (23)
+2014/03/10 16:29:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.init.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.init.js
+HTTP_REFERER=http://favoraim.lab/
+---
+2014/03/10 16:29:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.pkgd.min.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.pkgd.min.js
+HTTP_REFERER=http://favoraim.lab/
+---
+2014/03/10 16:29:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.init.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.init.js
+HTTP_REFERER=http://favoraim.lab/
+---
+2014/03/10 16:29:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.pkgd.min.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.pkgd.min.js
+HTTP_REFERER=http://favoraim.lab/
+---
+2014/03/10 16:29:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.init.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.init.js
+HTTP_REFERER=http://favoraim.lab/
+---
+2014/03/10 16:29:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.pkgd.min.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.pkgd.min.js
+HTTP_REFERER=http://favoraim.lab/
+---
+2014/03/10 16:29:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/874387eb/js/isotope.init.js".' in D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\favoraim.lab\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/874387eb...')
+#1 D:\xampp\htdocs\favoraim.lab\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\favoraim.lab\index.php(23): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/874387eb/js/isotope.init.js
+HTTP_REFERER=http://favoraim.lab/
+---

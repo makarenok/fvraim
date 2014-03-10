@@ -78,7 +78,7 @@ $(function(){
             value = $this.attr('data-option-value');
         value = value === 'false' ? false : value;
         options[ key ] = value;
-        isotopeInstance.options;
+        $container.isotope(options);
         return false;
       }
       
