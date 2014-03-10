@@ -6,6 +6,11 @@ $(function(){
   var $container_group2 = $('#testimonials-groups-2 .itemsgroups');
   var $container_group3 = $('#testimonials-groups-3 .itemsgroups');
 
+  var isotopeInstance = $container.data('isotope');
+  var isotopeInstance1 = $container_group1.data('isotope');
+  var isotopeInstance2 = $container_group2.data('isotope');
+  var isotopeInstance3 = $container_group3.data('isotope');
+
   var bodyheight, topheight;
 
   function bdheight(){
@@ -14,27 +19,24 @@ $(function(){
      $("#main-content, #left-content, #testimonials-groups-1, #testimonials-groups-2, #testimonials-groups-3").css('height', bodyheight-topheight+'px');
 
   }   
-  $(window).load(function(){   
-    bdheight();
-  });
+
+  //  bdheight();
+ 
 
   $("#main-content, #left-content, #testimonials-groups-1, #testimonials-groups-2, #testimonials-groups-3").css('height', bodyheight-topheight+'px');
-  $(window).bind("debouncedresize", function(){
+  $(window).on("debouncedresize", function(){
          bdheight();
          reloy();
     });
     
     $('#testimonials-groups').on('slid.bs.carousel', function (e) {
-      $('#testimonials-groups .item.active .testimonials > div.row').isotope({
-         'resizable' : false,
-         'layoutMode': 'masonry',
-      }); 
-      reloy();
+        
+         isotopeInstance1.layout()
+         isotopeInstance2.layout()
+         isotopeInstance3.layout()
+
     })
     
-    
-     
-
     
       var $optionSets = $('#options .option-set'),
           $optionLinks = $optionSets.find('a');
@@ -76,7 +78,7 @@ $(function(){
             value = $this.attr('data-option-value');
         value = value === 'false' ? false : value;
         options[ key ] = value;
-        $container.isotope(options);
+        isotopeInstance.options;
         return false;
       }
       
@@ -86,10 +88,10 @@ $(function(){
 
     function reloy() {
         
-        $container.isotope('bindResize');
-        $container_group1.isotope('bindResize');
-        $container_group2.isotope('bindResize');
-        $container_group3.isotope('bindResize');
+        isotopeInstance.layout();
+        isotopeInstance1.layout();
+        isotopeInstance2.layout();
+        isotopeInstance3.layout();
     }
   });
 

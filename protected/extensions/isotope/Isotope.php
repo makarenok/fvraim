@@ -82,13 +82,26 @@ class Isotope extends CListView
         $this->_assetsUrl = Yii::app()->getAssetManager()->publish(dirname(__FILE__).'/assets');
 
         $cs = Yii::app()->clientScript;
-        $cs->registerCoreScript('jquery');
-        $cs->registerScriptFile("{$this->_assetsUrl}/js/isotope.pkgd.min.js",  CClientScript::POS_END);
-        $cs->registerScriptFile("{$this->_assetsUrl}/js/fit-columns.js",  CClientScript::POS_END);
+
+        $assetsPackage=array(
+                    'baseUrl'=>$this->_assetsUrl,
+                    'js'=>array(
+                        'js/isotope.pkgd.min.js',
+                       // 'js/fit-columns.js',
+                        'js/isotope.init.js',
+                    ),
+                    'depends'=>array('jquery'),
+                    'coreScriptPosition'=>CClientScript::POS_END
+                );
+
+        Yii::app()->clientScript->addPackage('isotope', $assetsPackage);
+        Yii::app()->clientScript->registerPackage('isotope');
+
         $this->options['itemSelector']='.'.$this->itemSelectorClass;
-        $cs->registerScript('isotope'.$this->iso,"var \$isoContainer{$this->iso} = $('#{$this->itemContainerId} .{$this->isoClass}'); \$isoContainer{$this->iso}.isotope(".CJavaScript::encode($this->options).");");
+        $cs->registerScript('isotope'.$this->iso,"var \$isoContainer{$this->iso} = $('#{$this->itemContainerId} .{$this->isoClass}'); \$isoContainer{$this->iso}.isotope(".CJavaScript::encode($this->options).");", CClientScript::POS_END);
         $cs->registerScriptFile("{$this->_assetsUrl}/js/isotope.init.js",  CClientScript::POS_END);
         
+  
    }
 
     protected function infiniteScrollScript(){
@@ -104,8 +117,9 @@ class Isotope extends CListView
         $options=$this->assignInfiniteOptions();
         $callback=$this->assignInfiniteCallback();
 
-        $cs->registerScript('isotope-scroll'.$this->iso,"\$isoContainer{$this->iso}.infinitescroll({$options},{$callback});");
+        $cs->registerScript('isotope-scroll'.$this->iso,"\$isoContainer{$this->iso}.infinitescroll({$options},{$callback});", CClientScript::POS_END);
         $cs->registerCss('isotope-pager',"#{$this->itemContainerId} .{$this->pagerCssClass} { display:none; }");
+        
     }
 
     protected function assignInfiniteOptions(){
