@@ -563,7 +563,7 @@ img { max-width: none; }
     #testimonials-groups .carousel-indicators{top: -68px;}
     #groups-right-shevron{top: 7px; }
 }
-.thmlv-overlay {
+.item-overlay {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -573,10 +573,25 @@ img { max-width: none; }
     width: 100%;
     z-index: 2;
 }
-.thmlv-outer-details {
+.item-outer-details {
     padding: 50px 30px;
 }
-.type-portfolio .thmlv-outer-categories {
+.item_group-outer-details, .item_group-outer-text {
+    height: 24px;
+    padding: 2px 0 0px 7px;
+    background-color: #7db8da;
+    opacity: 0.8;
+    position: absolute;top:0;left:0;
+    z-index: 3; width: 100%;
+    vertical-align: middle;
+}
+.item_group-outer-text{
+    z-index: 4; opacity: 1;
+}
+.item_group-outer-text a {
+    color: #fff;
+}
+.item_group-outer-categories {
     display: block;
     font-size: 0.889em;
     line-height: 1.1em;

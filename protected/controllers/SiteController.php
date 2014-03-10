@@ -111,11 +111,11 @@ class SiteController extends Controller
 			'dataProvider'=>$dataProvider,
 		);
 		$rawDataGroups=array(
-			array('id'=>1, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'height2'),
-			array('id'=>2, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>''),
-			array('id'=>3, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>''),
-			array('id'=>4, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'height2'),
-			array('id'=>5, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
+			array('id'=>1, 'title'=>'Выставки', 'link'=>'/uploads/calendar.jpg', 'sort'=>'height2'),
+			array('id'=>2, 'title'=>'Мастер-классы', 'link'=>'/uploads/car.jpg', 'sort'=>''),
+			array('id'=>3, 'title'=>'Дизайн', 'link'=>'/uploads/music.jpg', 'sort'=>''),
+			array('id'=>4, 'title'=>'Архитектура', 'link'=>'/uploads/rock.jpg', 'sort'=>'height2'),
+			array('id'=>5, 'title'=>'Рок-музыка', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
 		);
 		$dataProviderGroups = new CArrayDataProvider($rawDataGroups, array(
 			    'id'=>'group',

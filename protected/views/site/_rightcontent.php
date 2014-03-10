@@ -63,6 +63,7 @@
 							    'itemsCssClass'=>'col-lg-12 col-md-12 col-sm-12 col-xs-12 itemsgroups',
 							    'isoClass'=>'itemsgroups',
 							    'options'=>array(
+							      'resizable'=> false,
 							      'layoutMode'=> 'masonry',
 							      'columnWidth'=>'.grid-sizer-width',
 							      'itemSelector' => '.item_group'
@@ -89,9 +90,10 @@
 							    'template'=>"{items}",
 							    'itemSelectorClass'=>'item_group',
 							    'itemsTagName'=>'items',
-							    'itemsCssClass'=>'col-lg-12 col-md-12 col-sm-12 col-xs-12 itemsgroups',
+							    'itemsCssClass'=>'col-lg-12 col-md-12 col-sm-12 col-xs-12 itemsgroups grid-sizer-width',
 							    'isoClass'=>'itemsgroups',
 							    'options'=>array(
+							      'resizable'=> false,
 							      'layoutMode'=> 'masonry',
 							      'columnWidth'=>'.grid-sizer-width',
 							      'itemSelector' => '.item_group'

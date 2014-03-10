@@ -26,10 +26,10 @@ $(function(){
     
     $('#testimonials-groups').on('slid.bs.carousel', function (e) {
       $('#testimonials-groups .item.active .testimonials > div.row').isotope({
+         'resizable' : false,
          'layoutMode': 'masonry',
-        'columnWidth':'.grid-sizer-width',
-        'itemSelector': '.item_group'
       }); 
+      reloy();
     })
     
     
