@@ -576,7 +576,7 @@ img { max-width: none; }
 .item-outer-details {
     padding: 50px 30px;
 }
-.item_group-outer-details, .item_group-outer-text {
+.item_group-outer-details {
     height: 24px;
     padding: 2px 0 0px 7px;
     background-color: #7db8da;
@@ -586,8 +586,14 @@ img { max-width: none; }
     vertical-align: middle;
 }
 .item_group-outer-text{
-    z-index: 4; opacity: 1;
+    height: 24px;
+    padding: 2px 0 0px 7px;
+    opacity: 1;
+    position: absolute;top:0;left:0;
+    z-index: 4; width: 100%;
+    vertical-align: middle;
 }
+
 .item_group-outer-text a {
     color: #fff;
 }
