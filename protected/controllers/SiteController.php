@@ -25,7 +25,7 @@ class SiteController extends Controller
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
-	public function actionIndex()
+	public function actionIndex($filter = '')
 	{
  
         	
@@ -74,7 +74,7 @@ class SiteController extends Controller
 			array('id'=>40, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'weekend'),
 			array('id'=>41, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'weekend'),
 		);
-		/*if( strlen($filter) > 0 )
+		if( strlen($filter) > 0 )
 		{
 			$sortData = array();
 			foreach($rawData as $k=>$v){
@@ -82,15 +82,25 @@ class SiteController extends Controller
 					$sortData[] = $v;
 			}
 			$rawData = $sortData;
-		}*/
-		// or using: $rawData=User::model()->findAll();
+		}
+		/*or using:
+		$criteria = new CDbCriteria();
+	    if( strlen( $filter ) > 0 ){
+	    	$criteria->params = array(':filter'=>$filter);
+	        $criteria->addInCondition('sort', array($filter));
+	    }
+	    $rawData=Events::model()->findAll($criteria);
+	    */
+	    $sort = new CSort();
+	    $sort->attributes = array('new'=>array('label'=>'Новое'),'near'=>array('label'=>'Ближайшее'),'weekend'=>array('label'=>'На выходных'));
+	    $sort->sortVar = 'filter';
+	    $sort->descTag = false;
+	    $sort->separators = array('-','');
+	    $sort->defaultOrder= array('new'=>CSort::SORT_ASC);
+
 		$dataProvider = new CArrayDataProvider($rawData, array(
 			    'id'=>'event',
-			    'sort'=>array(
-			        'attributes'=>array(
-			             'id', 'title', 'link', 'sort',
-			        ),
-			    ),
+			    'sort'=>$sort,
 			    'pagination'=>array(
 			        'pageSize'=>20,
 			    ),
@@ -100,7 +110,12 @@ class SiteController extends Controller
 		$params =array(
 			'dataProvider'=>$dataProvider,
 		);
-		if($this->processPageRequest('event_page')) {
+
+		$this->beginClip('rightcontent');
+        $this->renderPartial('_rightcontent', $params);
+        $this->endClip();
+
+		if($this->processPageRequest('filter')) {
 			$this->renderPartial('index', $params);
 		} else {
 			$this->render('index', $params);

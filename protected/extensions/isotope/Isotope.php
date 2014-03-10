@@ -10,6 +10,7 @@ Yii::import('application.extensions.isotope.InfiniteScrollLinkPager');
 
 class Isotope extends CListView
 {
+    public $iso='';
     /**
      * ID for the container, if set to null. we generate the ID
      * @var null
@@ -21,6 +22,8 @@ class Isotope extends CListView
      * @var string
      */
     public $itemSelectorClass='item';
+
+    public $isoClass="items";
 
     /**
      * options for the isotope jquery
@@ -80,11 +83,12 @@ class Isotope extends CListView
 
         $cs = Yii::app()->clientScript;
         $cs->registerCoreScript('jquery');
-        $cs->registerScriptFile("{$this->_assetsUrl}/js/jquery.isotope.min.js");
+        $cs->registerScriptFile("{$this->_assetsUrl}/js/isotope.pkgd.min.js",  CClientScript::POS_END);
 
         $this->options['itemSelector']='.'.$this->itemSelectorClass;
-        $cs->registerScript('isotope',"var \$isoContainer = $('#{$this->itemContainerId} .{$this->itemsCssClass}');\$isoContainer.isotope(".CJavaScript::encode($this->options).");");
-   
+        $cs->registerScript('isotope'.$this->iso,"var \$isoContainer{$this->iso} = $('#{$this->itemContainerId} .{$this->isoClass}'); \$isoContainer{$this->iso}.isotope(".CJavaScript::encode($this->options).");");
+        $cs->registerScriptFile("{$this->_assetsUrl}/js/isotope.init.js",  CClientScript::POS_END);
+        
    }
 
     protected function infiniteScrollScript(){
@@ -94,13 +98,13 @@ class Isotope extends CListView
 
         $cs = Yii::app()->clientScript;
         $infiniteScrollScript = YII_DEBUG ? 'jquery.infinitescroll.js' : 'jquery.infinitescroll.min.js';
-        $cs->registerScriptFile("{$this->_assetsUrl}/js/{$infiniteScrollScript}");
+        $cs->registerScriptFile("{$this->_assetsUrl}/js/{$infiniteScrollScript}",  CClientScript::POS_END);
         $cs->registerCssFile("{$this->_assetsUrl}/css/isotope.css");
-
+        
         $options=$this->assignInfiniteOptions();
         $callback=$this->assignInfiniteCallback();
 
-        $cs->registerScript('isotope-scroll',"\$isoContainer.infinitescroll({$options},{$callback});");
+        $cs->registerScript('isotope-scroll'.$this->iso,"\$isoContainer{$this->iso}.infinitescroll({$options},{$callback});");
         $cs->registerCss('isotope-pager',"#{$this->itemContainerId} .{$this->pagerCssClass} { display:none; }");
     }
 
@@ -117,7 +121,7 @@ class Isotope extends CListView
 
     protected function assignInfiniteCallback(){
         // trigger Masonry as a callback
-        $defaultCallback="function( newElements ) { /* hide new items while they are loading*/ var newElems = jQuery( newElements ); \$isoContainer.isotope( 'appended', newElems, true );{$this->infiniteCallback}}";
+        $defaultCallback="function( newElements ) { /* hide new items while they are loading*/ var newElems = jQuery( newElements ); \$isoContainer{$this->iso}.isotope( 'appended', newElems, true );{$this->infiniteCallback}}";
         return $defaultCallback;
     }
 }

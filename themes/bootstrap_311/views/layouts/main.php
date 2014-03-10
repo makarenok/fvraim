@@ -30,6 +30,8 @@
     Yii::app()->clientScript->registerPackage('bootstrap');
 
     Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.nicescroll.min.js', CClientScript::POS_END);
+    Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.debounced-resize.js', CClientScript::POS_END);
+
      ?>
 
 
@@ -49,9 +51,10 @@
 	<ul class="nav navbar-left top-menu">
         <li>
 	        <div class="sidebar-toggle-box">
-			    <img id="collapsed_leftbutton" src="<?php echo Yii::app()->baseUrl; ?>/images/bars.png" />
+			    <img id="collapsed_leftbutton" class="pull-left" src="<?php echo Yii::app()->baseUrl; ?>/images/bars.png" />
+			    <input type="text" class="form-control search" placeholder="Поиск">
 			</div>
-            <input type="text" class="form-control search" placeholder="Поиск">
+            
         </li>
     </ul>
 	</div><!-- /.navbar-inner -->
@@ -118,7 +121,7 @@
 <div id="main-content">
 	<div id="page-wrapper" class="container-fluid">
 		<div class="row">
-		    <div class="col-lg-12">
+		    <div class="col-xs-12 col-lg-8  col-left left-content" id="left-content">
 		    <?php if(Yii::app()->controller->id == 'site' && Yii::app()->controller->action->id == 'index'){ ?>
 
 		    <?php } else {  ?>
@@ -135,7 +138,15 @@
 
 			<?php echo $content; ?>
 
-		    </div><!-- /.col-lg-12 -->
+		    </div><!-- /.col-lg-8 -->
+		    <div class="col-xs-12 col-lg-4  col-right right-content" id="right-content">
+						
+			<?php 
+			if(!empty($this->clips['rightcontent'])) {
+		       echo $this->clips['rightcontent'];
+		     }
+		     ?>
+								
 		</div><!-- /.row -->
 	</div><!-- /.page-wrapper -->
 </div><!-- /#main-content -->

@@ -2,6 +2,8 @@
 $(function() {
 	
 
+    $('#left-content').niceScroll({styler:"fb",touchbehavior:true,cursoropacitymax : 0, cursorwidth: '3', cursorborderradius: '10px', background: '#D3D3D3', spacebarenabled:false, cursorborder: ''});
+
     $('#collapsed_leftbutton').on('click', function () {
     	if($('#sidebar').css("left") == "-" + $('#sidebar').width() + "px") {
 	        $('#sidebar').animate({"left": "0px"},
