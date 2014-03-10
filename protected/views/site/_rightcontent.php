@@ -33,8 +33,9 @@
 							    'itemsCssClass'=>'col-lg-12 col-md-12 col-sm-12 col-xs-12 itemsgroups',
 							    'isoClass'=>'itemsgroups',
 							    'options'=>array(
+							      'resizable'=> false,
 							      'layoutMode'=> 'masonry',
-							      'columnWidth'=>'.grid-sizer',
+							      'columnWidth'=>'.grid-sizer-width',
 							      'itemSelector' => '.item_group'
 							      ), // options for the isotope jquery
 							    'htmlOptions'=>array('class'=>'row'),
@@ -63,7 +64,7 @@
 							    'isoClass'=>'itemsgroups',
 							    'options'=>array(
 							      'layoutMode'=> 'masonry',
-							      'columnWidth'=>'.grid-sizer',
+							      'columnWidth'=>'.grid-sizer-width',
 							      'itemSelector' => '.item_group'
 							      ), // options for the isotope jquery
 							    'htmlOptions'=>array('class'=>'row'),
@@ -92,7 +93,7 @@
 							    'isoClass'=>'itemsgroups',
 							    'options'=>array(
 							      'layoutMode'=> 'masonry',
-							      'columnWidth'=>'.grid-sizer',
+							      'columnWidth'=>'.grid-sizer-width',
 							      'itemSelector' => '.item_group'
 							      ), // options for the isotope jquery
 							    'htmlOptions'=>array('class'=>'row'),

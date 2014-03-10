@@ -84,7 +84,7 @@ class Isotope extends CListView
         $cs = Yii::app()->clientScript;
         $cs->registerCoreScript('jquery');
         $cs->registerScriptFile("{$this->_assetsUrl}/js/isotope.pkgd.min.js",  CClientScript::POS_END);
-
+        $cs->registerScriptFile("{$this->_assetsUrl}/js/fit-columns.js",  CClientScript::POS_END);
         $this->options['itemSelector']='.'.$this->itemSelectorClass;
         $cs->registerScript('isotope'.$this->iso,"var \$isoContainer{$this->iso} = $('#{$this->itemContainerId} .{$this->isoClass}'); \$isoContainer{$this->iso}.isotope(".CJavaScript::encode($this->options).");");
         $cs->registerScriptFile("{$this->_assetsUrl}/js/isotope.init.js",  CClientScript::POS_END);

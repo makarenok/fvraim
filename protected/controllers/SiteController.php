@@ -110,9 +110,19 @@ class SiteController extends Controller
 		$params =array(
 			'dataProvider'=>$dataProvider,
 		);
-
+		$rawDataGroups=array(
+			array('id'=>1, 'title'=>'calendar', 'link'=>'/uploads/calendar.jpg', 'sort'=>'height2'),
+			array('id'=>2, 'title'=>'car', 'link'=>'/uploads/car.jpg', 'sort'=>''),
+			array('id'=>3, 'title'=>'music', 'link'=>'/uploads/music.jpg', 'sort'=>''),
+			array('id'=>4, 'title'=>'rock', 'link'=>'/uploads/rock.jpg', 'sort'=>'height2'),
+			array('id'=>5, 'title'=>'rul', 'link'=>'/uploads/rul.jpg', 'sort'=>'near'),
+		);
+		$dataProviderGroups = new CArrayDataProvider($rawDataGroups, array(
+			    'id'=>'group',
+			    'pagination'=>false,
+		));
 		$this->beginClip('rightcontent');
-        $this->renderPartial('_rightcontent', $params);
+        $this->renderPartial('_rightcontent', array('dataProvider'=>$dataProviderGroups));
         $this->endClip();
 
 		if($this->processPageRequest('filter')) {
